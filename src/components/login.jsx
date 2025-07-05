@@ -81,11 +81,11 @@ const Login = () => {
           {error && <Error message={error.message}/>}
         </CardHeader>
         <CardContent classname="space-y-2">
-          <div className="space-y-1 my-1">
+          <div className="space-y-1 my-2">
             <Input name="email" type="email" onChange={handleInputChange} placeholder="Enter Email" />
             {errors.email && <Error message={errors.email} />}
           </div>
-          <div className="space-y-1">
+          <div className="space-y-1 my-2">
             <Input name="password" type="password" onChange={handleInputChange} placeholder="Enter Password" />
             {errors.password && <Error message={errors.password} />}
           </div>

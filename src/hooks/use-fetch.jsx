@@ -1,5 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 
+// To abstract away common fetch logic: loading state, 
+// error handling, and storing the result of an async function.
+
 const useFetch = (cb, options = {}) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);

@@ -13,6 +13,9 @@ const UrlProvider = ({children}) => {
     useEffect(() => {
         fetchUser();
     },[]);
+
+    //useEffect runs first and then isAuthneticated since
+    //useEffect runs on mounting after the UrlPrivider runs on component mount.
    
   return <UrlContext.Provider value = {{user, fetchUser, loading, isAuthenticated}}>{children} </UrlContext.Provider>
 };

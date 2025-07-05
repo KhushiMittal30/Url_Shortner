@@ -7,6 +7,7 @@ import Auth from './pages/auth'
 import RedirectLink from './pages/redirect-link'
 import Dashboard from './pages/dashboard'
 import UrlProvider from './context'
+import RequireAuth from './components/require-auth'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,9 @@ const router = createBrowserRouter([
       },
       {
         path:"/dashboard",
-        element:<Dashboard/>
+        element: <RequireAuth>
+        <Dashboard/>
+        </RequireAuth>
       },
       {
         path:"/:id",
@@ -26,7 +29,9 @@ const router = createBrowserRouter([
       },
       {
         path:"/link/:id",
-        element:<Link/>  //has all the stats for the link and to create a dynamic link we have the id
+        element:<RequireAuth>
+                   <Link/>  //has all the stats for the link and to create a dynamic link we have the id
+               </RequireAuth>
       },
       {
         path:"/auth",

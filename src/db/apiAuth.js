@@ -1,8 +1,6 @@
 //import all logic related to logic and signup
 //create an api related to login and signup and fo rthat we need to interact with the db
 
-// import { error } from "console";
-import { profile } from "node:console";
 import supabase, { supabaseUrl } from "./supabase";
 
 
