@@ -14,12 +14,18 @@ const UrlProvider = ({children}) => {
         fetchUser();
     },[]);
 
+    //Because React always executes hooks in the order they appear in the component function, during render.
     //useEffect runs first and then isAuthneticated since
     //useEffect runs on mounting after the UrlPrivider runs on component mount.
    
   return <UrlContext.Provider value = {{user, fetchUser, loading, isAuthenticated}}>{children} </UrlContext.Provider>
 };
 
+/**
+ * Custom hook to access the UrlContext value.
+ *
+ * @returns {any} The current context value for UrlContext.
+ */
 export const UrlState = () => { 
    return  useContext(UrlContext);
 }

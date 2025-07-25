@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { createBrowserRouter, Link, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import AppLayout from './layouts/app-layout'
 import LandingPage from './pages/landing'
 import Auth from './pages/auth'
@@ -8,6 +8,7 @@ import RedirectLink from './pages/redirect-link'
 import Dashboard from './pages/dashboard'
 import UrlProvider from './context'
 import RequireAuth from './components/require-auth'
+import Link from './pages/link'
 
 const router = createBrowserRouter([
   {
