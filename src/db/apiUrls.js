@@ -1,3 +1,4 @@
+import { UAParser } from "ua-parser-js";
 import supabase, { supabaseUrl } from "./supabase";
 
 export async function getUrls(user_id){
@@ -46,6 +47,28 @@ export async function createUrl({title, longUrl, customUrl, user_id}, qrcode){
       if(error) {
         console.log(error.message);
         throw new Error("Unable to create short URLs");
+      }
+   return data;
+
+}
+
+export async function getLongUrl(id){
+   const {data, error} = await supabase.from("urls").select("id, original_url").or(`short_url.eq.${id}, custom_url.eq.${id}`).single();
+
+      if(error) {
+        console.log(error.message);
+        throw new Error("Error fetching the short link");
+      }
+   return data;
+
+}
+
+export async function getUrl({id, user_id}){
+   const {data, error} = await supabase.from("urls").select("*").eq("id", id).eq("user_id", user_id).single(); 
+
+      if(error) {
+        console.log(error.message);
+        throw new Error("Short url not found");
       }
    return data;
 
